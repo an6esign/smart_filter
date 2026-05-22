@@ -4,8 +4,15 @@ fear_model = joblib.load(
     "app/models/fear_model.joblib"
 )
 
+fear_level_model = joblib.load(
+    "app/models/fear_level_model.joblib"
+)
+
 difficulty_model = joblib.load(
     "app/models/difficulty_model.joblib"
+)
+difficulty_level_model = joblib.load(
+    "app/models/difficulty_level_model.joblib"
 )
 
 category_model = joblib.load(
