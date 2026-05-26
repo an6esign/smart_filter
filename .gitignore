@@ -7,3 +7,6 @@ netbooks/
 data/
 artifacts/
 mlflow.db
+scrpts/
+test/
+full_markup.xlsx

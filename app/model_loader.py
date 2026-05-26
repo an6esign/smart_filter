@@ -1,28 +1,62 @@
+from pathlib import Path
 import joblib
 
+# =========================
+# BASE DIR
+# =========================
+
+BASE_DIR = Path(__file__).resolve().parent
+
+MODELS_DIR = BASE_DIR / "models"
+
+# =========================
+# FEAR
+# =========================
+
 fear_model = joblib.load(
-    "app/models/fear_model.joblib"
+    MODELS_DIR / "fear_model.joblib"
 )
 
 fear_level_model = joblib.load(
-    "app/models/fear_level_model.joblib"
+    MODELS_DIR / "fear_level_model.joblib"
 )
+
+# =========================
+# DIFFICULTY
+# =========================
 
 difficulty_model = joblib.load(
-    "app/models/difficulty_model.joblib"
-)
-difficulty_level_model = joblib.load(
-    "app/models/difficulty_level_model.joblib"
+    MODELS_DIR / "difficulty_model.joblib"
 )
 
+difficulty_level_model = joblib.load(
+    MODELS_DIR / "difficulty_level_model.joblib"
+)
+
+# =========================
+# CATEGORY
+# =========================
+
 category_model = joblib.load(
-    "app/models/category_model.joblib"
+    MODELS_DIR / "category_model.joblib"
 )
 
 category_names = joblib.load(
-    "app/models/category_names.joblib"
+    MODELS_DIR / "category_names.joblib"
+)
+
+# =========================
+# FORMAT
+# =========================
+
+has_format_model = joblib.load(
+    MODELS_DIR / "has_format_model.joblib"
 )
 
 format_model = joblib.load(
-    "app/models/has_format_model.joblib"
+    MODELS_DIR / "format_model.joblib"
+)
+
+format_label_encoder = joblib.load(
+    MODELS_DIR / "format_label_encoder.joblib"
 )
