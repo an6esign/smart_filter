@@ -5,3 +5,6 @@ pandas
 numpy
 joblib
 python-multipart
+torch
+transformers
+sentencepiece

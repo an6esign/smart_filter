@@ -30,6 +30,8 @@ from app.predictors.category_predictor import (
     predict_category
 )
 
+from app.predictors.rubert_fear_predictor import predict_rubert_fear
+
 
 app = FastAPI(
     title="Smart Filter API"
@@ -157,4 +159,16 @@ def predict(request: PredictRequest):
         },
 
         "category": category_result
+    }
+    
+@app.post("/rubert_fear_predict")
+def rubert_fear_predict(request: PredictRequest):
+
+    result = predict_rubert_fear(
+        request.text
+    )
+
+    return {
+        "text": request.text,
+        "prediction": result
     }

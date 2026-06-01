@@ -1,5 +1,7 @@
 from pathlib import Path
 import joblib
+import torch
+from app.models.rubert_two_head_model import RuBertTwoHeadFearModel
 
 # =========================
 # BASE DIR
@@ -60,3 +62,26 @@ format_model = joblib.load(
 format_label_encoder = joblib.load(
     MODELS_DIR / "format_label_encoder.joblib"
 )
+
+# =========================
+# RUBERT
+# =========================
+
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+RUBERT_MODEL_DIR = MODELS_DIR / "rubert_two_head_fear"
+RUBERT_MODEL_PATH = RUBERT_MODEL_DIR / "rubert_two_head_fear.pt"
+
+rubert_model = RuBertTwoHeadFearModel(
+    model_name=str(RUBERT_MODEL_DIR)
+)
+
+state_dict = torch.load(
+    RUBERT_MODEL_PATH,
+    map_location=DEVICE
+)
+
+rubert_model.load_state_dict(state_dict)
+
+rubert_model.to(DEVICE)
+rubert_model.eval()
