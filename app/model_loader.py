@@ -70,6 +70,10 @@ has_age_model = joblib.load(
 age_model = joblib.load(
     MODELS_DIR / "age_model.joblib"
 )
+
+has_number_model = joblib.load(
+    MODELS_DIR / "has_number_model.joblib"
+)
 # =========================
 # RUBERT
 # =========================
