@@ -2,8 +2,6 @@ from fastapi import FastAPI
 
 from app.schemas import PredictRequest
 
-from app.excel_predict import router as excel_predict_router
-
 from app.predictors.fear_predictor import predict_fear
 from app.predictors.fear_level_predictor import predict_fear_level
 
@@ -23,14 +21,9 @@ from app.predictors.has_number_predictor import predict_has_number
 from app.predictors.number_of_people_predictor import predict_number_of_people
 
 
-from app.predictors.rubert_fear_predictor import predict_rubert_fear
-
-
 app = FastAPI(
     title="Smart Filter API"
 )
-
-app.include_router(excel_predict_router)
 
 
 @app.get("/")
@@ -172,17 +165,4 @@ def predict(request: PredictRequest):
         },
 
         "category": category_result
-    }
-
-
-@app.post("/rubert_fear_predict")
-def rubert_fear_predict(request: PredictRequest):
-
-    result = predict_rubert_fear(
-        request.text
-    )
-
-    return {
-        "text": request.text,
-        "prediction": result
     }

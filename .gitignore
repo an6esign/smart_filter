@@ -1,13 +1,43 @@
+# Python
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and local config
 .venv/
+venv/
+.env
+.env.*
+
+# OS/editor
 .DS_Store
+.idea/
+.vscode/
+
+# Research notebooks, datasets, and local experiments
+*.ipynb
 netbooks/
+notebooks/
+test/
 data/
 artifacts/
+scripts/
+
+# Spreadsheet/tabular exports
+*.xlsx
+*.xls
+*.csv
+*.tsv
+~$*.xlsx
+
+# ML experiment/runtime files
 mlflow.db
-scrpts/
-test/
-full_markup.xlsx
-rubert_two_head_fear/
+mlruns/
+
+# Logs and temp files
+*.log
+tmp/
+temp/
